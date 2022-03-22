@@ -4,11 +4,9 @@ const Schema = mongoose.Schema;
 const Feedback = new Schema({
     fName: {
         type: String,
-        unique: true
     },
     fComment: {
         type: String,
-        unique: true
     },
     fRating: {
         type: Number,
