@@ -20,10 +20,12 @@ connection.once("open", () => {
 const app = express();
 
 const PORT = process.env.PORT || 8070;
-F
+
 app.use(cors());
 app.use(express.json());
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number ${PORT}`)
 })
+
+app.use("/logistics", require("./BACKEND/routes/logistics"));
