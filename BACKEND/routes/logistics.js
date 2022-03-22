@@ -17,6 +17,19 @@ router.route("/create").post(async (req, res) => {
     unitPrice,
   });
 
+  const isAvailable = await Logistics.findOne({
+    pID: { $regex: new RegExp(pID, "i") },
+    pName: { $regex: new RegExp(pName, "i") }
+  });
+
+  if (isAvailable) {
+    console.log("Alredy Exist in the database, Plase Add new product 😍");
+    return res.status(401).json({
+      success: false,
+      error: "Alredy Exist in the database, Plase Add new product 😍",
+    });
+  }
+
   await newLogistics
     .save()
     .then(() => res.status(200).json({ success: true }))
