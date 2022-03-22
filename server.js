@@ -29,3 +29,4 @@ app.listen(PORT, () => {
 })
 
 app.use("/logistics", require("./BACKEND/routes/logistics"));
+app.use("/feedback", require("./BACKEND/routes/feedback"));
