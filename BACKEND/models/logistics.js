@@ -4,11 +4,9 @@ const Schema = mongoose.Schema;
 const Logistics = new Schema({
   pID: {
     type: String,
-    unique: true
   },
   pName: {
     type: String,
-    unique: true
   },
   quantity: {
     type: Number,
