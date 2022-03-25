@@ -29,30 +29,30 @@ const card = (
         </Typography>
         <hr />
         <Typography variant="body2">
-          <div className=" pl-14  flex pt-4 ">
+          <div className=" pl-64  flex pt-4 ">
             <div className=" px-2">
-              <Button variant="contained" color="success">
-                Logistics Management
+              <Button variant="contained" color="primary">
+                Home
               </Button>
             </div>
             <div className=" px-2">
-              <Button variant="contained" color="success">
-                Sales Management
+              <Button variant="contained" color="primary">
+                Booking & Ticket Reservations
               </Button>
             </div>
             <div className=" px-2">
-              <Button variant="contained" color="success">
-                Employee management
+              <Button variant="contained" color="primary">
+                Login
               </Button>
             </div>
             <div className=" px-2">
-              <Button variant="contained" color="success">
-                Bungalow & Safari jeep Mng.
+              <Button variant="contained" color="primary">
+                Lerning Center
               </Button>
             </div>
             <div className=" px-2">
-              <Button variant="contained" color="success">
-                Marketing & promotion
+              <Button variant="contained" color="primary">
+                Contact Us
               </Button>
             </div>
           </div>
@@ -80,12 +80,19 @@ const card = (
                   Image Description
                 </h1>
                 <p class="leading-relaxed pt-6">
-                  Fam locavore kickstarter distillery. Mixtape chillwave tumeric
-                  sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo
-                  juiceramps cornhole raw denim forage brooklyn. Everyday carry
-                  +1 seitan poutine tumeric. Gastropub blue bottle austin
-                  listicle pour-over, neutra jean shorts keytar banjo tattooed
-                  umami cardigan.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Maecenas posuere dictum fermentum. Curabitur efficitur justo
+                  sed lectus placerat vestibulum. Sed viverra ex faucibus purus
+                  maximus cursus. Mauris sit amet ornare arcu. Suspendisse vitae
+                  tincidunt ante. Cras condimentum interdum sollicitudin. Ut ac
+                  sem ut lectus lacinia accumsan. Curabitur vel venenatis
+                  libero. Fusce volutpat ligula a nibh malesuada, sed luctus
+                  nunc egestas. Nullam ultricies eleifend ipsum sed viverra.
+                  Nulla semper est sed quam aliquam tempor. Lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit. Maecenas dignissim diam
+                  dolor, eget blandit arcu sagittis non. Class aptent taciti
+                  sociosqu ad litora torquent per conubia nostra, per inceptos
+                  himenaeos.
                 </p>
               </div>
             </div>
@@ -110,7 +117,10 @@ const card = (
           <div class="container px-5 py-24 mx-auto flex flex-wrap">
             <div class="flex flex-wrap md:-m-2 -m-1 shadow-2xl">
               <div class="flex flex-wrap w-1/2">
-                <div class="md:p-2 p-1 w-1/2 border-4 cursor-pointer" data-aos="zoom-in">
+                <div
+                  class="md:p-2 p-1 w-1/2 border-4 cursor-pointer"
+                  data-aos="zoom-in"
+                >
                   <img
                     alt="gallery"
                     class="w-full object-cover h-full object-center block"
