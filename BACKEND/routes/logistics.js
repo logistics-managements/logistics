@@ -3,7 +3,7 @@ const Logistics = require("../models/logistics");
 
 //route for creating database insertion
 router.route("/create").post(async (req, res) => {
-  const { pID, pName } = req.body;
+  const { pID, pName,demand } = req.body;
 
   const quantity = Number(req.body.quantity);
 
@@ -15,6 +15,7 @@ router.route("/create").post(async (req, res) => {
     pName,
     quantity,
     unitPrice,
+    demand
   });
 
   const isAvailable = await Logistics.findOne({

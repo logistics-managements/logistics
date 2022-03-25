@@ -10,6 +10,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
+import DeleteIcon from '@mui/icons-material/Delete';
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -58,7 +60,7 @@ const Inventory = () => {
             -Warehouse Inventory-
           </h1>
         </Box>
-        <div>
+        <div className=" mx-32 mt-10">
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 400 }} aria-label="customized table">
               <TableHead>
@@ -90,6 +92,9 @@ const Inventory = () => {
                       </StyledTableCell>
                       <StyledTableCell align="right">
                         {value.demand}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        <DeleteIcon/>
                       </StyledTableCell>
                     </StyledTableRow>
                   </TableBody>
