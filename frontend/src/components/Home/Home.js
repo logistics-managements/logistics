@@ -248,11 +248,13 @@ const card = (
                     />
                   </div>
                 </div>
-                  <div className="pl-64">
+                <div className="pl-64">
+                  <NavLink to="/fcreate">
                     <Button variant="contained" color="success">
                       Add FeedBack
                     </Button>
-                  </div>
+                  </NavLink>
+                </div>
               </div>
             </div>
           </div>

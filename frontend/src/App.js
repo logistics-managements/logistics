@@ -8,6 +8,9 @@ import Inventory from "./components/Logistics/Inventory";
 import Create from "./components/Logistics/create";
 import Edit from "./components/Logistics/edit";
 import Footer from "./components/Footer";
+import Fcreate from "./components/Feedback/Create";
+import Allfeedbacks from "./components/Feedback/Allfeedbacks";
+import Fedit from "./components/Feedback/Edit";
 
 const App = () => {
   return (
@@ -19,6 +22,9 @@ const App = () => {
           <Route path="/create" element={[<Header />,<Create />]} />
           <Route path="/edit/:id" element={[<Header />,<Edit />]} />
           <Route path="/inventory" element={[<Header />,<Inventory />]} />
+          <Route path="/fcreate" element={[<Fcreate />]} />
+          <Route path="/fview" element={[<Header />,<Allfeedbacks />]} />
+          <Route path="/fedit" element={[<Header />,<Fedit />]} />
         </Routes>
         <div>
           <br />

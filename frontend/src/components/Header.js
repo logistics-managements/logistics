@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import logo from "../assets/logo.png";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -17,7 +18,7 @@ const Header = () => {
           </div>
         </div>
         <div className=" mx-96">
-            <img className="lg:w-80 w-80 m:w-80" src = {logo}/>
+          <img className="lg:w-80 w-80 m:w-80" src={logo} />
         </div>
       </Typography>
       <hr />
@@ -44,9 +45,11 @@ const Header = () => {
             </Button>
           </div>
           <div className=" px-2">
-            <Button variant="contained" color="success">
-              Marketing & promotion
-            </Button>
+            <NavLink to="/fview">
+              <Button variant="contained" color="success">
+                Feedback Management
+              </Button>
+            </NavLink>
           </div>
         </div>
       </Typography>
