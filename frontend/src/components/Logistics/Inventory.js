@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
@@ -36,7 +36,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Inventory = () => {
-
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
@@ -64,7 +63,11 @@ const Inventory = () => {
         >
           <div className=" inline-flex  mx-auto">
             <div className=" mt-2 -translate-x-8">
-              <Button variant="contained" color="primary" onClick={() => navigate("/adminhome")}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => navigate("/adminhome")}
+              >
                 Back
               </Button>
             </div>
@@ -110,7 +113,9 @@ const Inventory = () => {
                       </StyledTableCell>
                       <StyledTableCell align="right">
                         <div className=" pr-6 space-x-4">
-                          <EditIcon className=" border bg-green-600 cursor-pointer" />
+                          <NavLink to="/edit">
+                            <EditIcon className=" border bg-green-600 cursor-pointer" />
+                          </NavLink>
                           <DeleteIcon className=" border bg-red-600 cursor-pointer" />
                         </div>
                       </StyledTableCell>
@@ -121,7 +126,11 @@ const Inventory = () => {
             </Table>
           </TableContainer>
           <div className=" mx-auto mt-10 text-right">
-            <Button variant="contained" color="success" onClick={() => navigate("/create")}>
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() => navigate("/create")}
+            >
               Add Item
             </Button>
           </div>

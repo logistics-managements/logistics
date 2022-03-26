@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -13,6 +14,7 @@ import img4 from "../../assets/gallery/img4.jpg";
 import img5 from "../../assets/gallery/img5.jpg";
 import img6 from "../../assets/gallery/img6.jpg";
 import img7 from "../../assets/gallery/img7.jpg";
+import logo from "../../assets/logo.png";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -25,6 +27,9 @@ const card = (
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           <div className=" text-right">
             <Button variant="contained">My Account</Button>
+          </div>
+          <div className=" mx-96 translate-x-40">
+            <img className="lg:w-80 w-80 max-w-fit" src={logo} />
           </div>
         </Typography>
         <hr />
@@ -41,9 +46,11 @@ const card = (
               </Button>
             </div>
             <div className=" px-2">
-              <Button variant="contained" color="primary">
-                Login
-              </Button>
+              <NavLink to="/adminhome">
+                <Button variant="contained" color="primary">
+                  Login
+                </Button>
+              </NavLink>
             </div>
             <div className=" px-2">
               <Button variant="contained" color="primary">
