@@ -14,6 +14,8 @@ import img5 from "../../assets/gallery/img5.jpg";
 import img6 from "../../assets/gallery/img6.jpg";
 import img7 from "../../assets/gallery/img7.jpg";
 
+import feedback from "../../assets/feedback/feedback.jpg";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 AOS.init();
@@ -110,7 +112,10 @@ const card = (
           <div class="container px-5 py-24 mx-auto flex flex-wrap">
             <div class="flex flex-wrap md:-m-2 -m-1 shadow-2xl">
               <div class="flex flex-wrap w-1/2">
-                <div class="md:p-2 p-1 w-1/2 border-4 cursor-pointer" data-aos="zoom-in">
+                <div
+                  class="md:p-2 p-1 w-1/2 border-4 cursor-pointer"
+                  data-aos="zoom-in"
+                >
                   <img
                     alt="gallery"
                     class="w-full object-cover h-full object-center block"
@@ -154,6 +159,86 @@ const card = (
                     src={img7}
                   />
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <Box
+        sx={{
+          px: 20,
+          py: 4,
+          color: "red",
+          border: 1,
+          borderColor: "primary.main",
+        }}
+      >
+        <h1 className=" text-5xl text-lime-500 font-semibold">
+          -Feedbacks & Site Map-
+        </h1>
+      </Box>
+      <div data-aos="zoom-in">
+        <section class="text-gray-600 body-font overflow-hidde">
+          <div class="container px-5 py-24 mx-auto">
+            <div class="lg:w-full mx-auto flex flex-wrap shadow-2xl  border border-green-600">
+              <img
+                alt="ecommerce"
+                class="lg:w-1/2 w-full lg:h-96 h-64 object-cover object-center rounded pl-6 pt-6"
+                src={feedback}
+              />
+              <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                <h1 class="text-gray-900 text-2xl title-font font-medium mb-1">
+                  Feedbacks from our visitors <hr />
+                </h1>
+                <div className="p-2" data-aos="fade-left">
+                  <div className="pb-4 pt-2">
+                    <Box
+                      className="rounded-3xl"
+                      sx={{
+                        width: 425,
+                        height: 75,
+                        backgroundColor: "#b2dfdb",
+                        "&:hover": {
+                          backgroundColor: "#00796b",
+                          opacity: [0.9, 0.8, 0.7],
+                        },
+                      }}
+                    />
+                  </div>
+                  <div className="pb-4">
+                    <Box
+                      className="rounded-3xl"
+                      sx={{
+                        width: 425,
+                        height: 75,
+                        backgroundColor: "#b2dfdb",
+                        "&:hover": {
+                          backgroundColor: "#00796b",
+                          opacity: [0.9, 0.8, 0.7],
+                        },
+                      }}
+                    />
+                  </div>
+                  <div className="pb-4">
+                    <Box
+                      className="rounded-3xl"
+                      sx={{
+                        width: 425,
+                        height: 75,
+                        backgroundColor: "#b2dfdb",
+                        "&:hover": {
+                          backgroundColor: "#00796b",
+                          opacity: [0.9, 0.8, 0.7],
+                        },
+                      }}
+                    />
+                  </div>
+                </div>
+                  <div className="pl-64">
+                    <Button variant="contained" color="success">
+                      Add FeedBack
+                    </Button>
+                  </div>
               </div>
             </div>
           </div>
