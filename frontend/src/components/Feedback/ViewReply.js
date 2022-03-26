@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, NavLink, Link } from "react-router-dom";
 import axios from "axios";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import Box from "@mui/material/Box";
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import { TextField } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import TableContainer from "@mui/material/TableContainer";
+import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Button } from "@mui/material";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import { styled } from "@mui/material/styles";
+import TableBody from "@mui/material/TableBody";
 
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
+import logo from "../../assets/logo.png";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -35,11 +37,10 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const Allfeedbacks = () => {
+const ViewReply = () => {
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
-  
 
   useEffect(() => {
     (async () => {
@@ -49,21 +50,52 @@ const Allfeedbacks = () => {
         .catch((error) => alert(error));
     })();
   }, []);
-
-  const deleteData = async (id, type) => {
-    //method for deleting a data
-    if (window.confirm("Do you want to delete !")) {
-      await axios.delete(`/feedback/delete/${id}`);
-      await axios
-        .get("/feedback/")
-        .then((res) => setData(res?.data))
-        .catch((error) => alert(error));
-    }
-  };
-
-
   return (
     <>
+      <React.Fragment>
+        <CardContent className=" bg-neutral-800">
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            <div className=" text-right">
+              <Button variant="contained">My Account</Button>
+            </div>
+            <div className=" mx-96 translate-x-40">
+              <img className="lg:w-80 w-80 max-w-fit" src={logo} />
+            </div>
+          </Typography>
+          <hr />
+          <Typography variant="body2">
+            <div className=" pl-64  flex pt-4 ">
+              <div className=" px-2">
+                <Button variant="contained" color="primary">
+                  Home
+                </Button>
+              </div>
+              <div className=" px-2">
+                <Button variant="contained" color="primary">
+                  Booking & Ticket Reservations
+                </Button>
+              </div>
+              <div className=" px-2">
+                <NavLink to="/adminhome">
+                  <Button variant="contained" color="primary">
+                    Login
+                  </Button>
+                </NavLink>
+              </div>
+              <div className=" px-2">
+                <Button variant="contained" color="primary">
+                  Lerning Center
+                </Button>
+              </div>
+              <div className=" px-2">
+                <Button variant="contained" color="primary">
+                  Contact Us
+                </Button>
+              </div>
+            </div>
+          </Typography>
+        </CardContent>
+      </React.Fragment>
       <div>
         <Box
           sx={{
@@ -79,27 +111,27 @@ const Allfeedbacks = () => {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={() => navigate("/adminhome")}
+                onClick={() => navigate("/")}
               >
                 Back
               </Button>
             </div>
-            <div>
-              <h1 className=" ml-44 text-5xl text-lime-500 font-semibold">
-                -All Feedbacks-
-              </h1>
-            </div>
           </div>
         </Box>
+        <div className=" text-4xl text-center mt-10">
+          View All Replies <br />
+        </div>
         <div className=" mx-32 mt-10">
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 400 }} aria-label="customized table">
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Name</StyledTableCell>
-                  <StyledTableCell align="right">Feedback Comment</StyledTableCell>
+                  <StyledTableCell align="right">
+                    Feedback Comment
+                  </StyledTableCell>
                   <StyledTableCell align="right">Ratings</StyledTableCell>
-                  <StyledTableCell align="right">Update/Remove</StyledTableCell>
+                  <StyledTableCell align="right">Response</StyledTableCell>
                 </TableRow>
               </TableHead>
 
@@ -108,9 +140,7 @@ const Allfeedbacks = () => {
                   <TableBody>
                     <StyledTableRow key={value?._id}>
                       <StyledTableCell component="th" scope="row">
-                        <Link to={`/feedback/get/${value._id}`}>
                         {value?.fName}
-                        </Link>
                       </StyledTableCell>
                       <StyledTableCell align="right">
                         {value?.fComment}
@@ -119,13 +149,7 @@ const Allfeedbacks = () => {
                         {value?.fRating}
                       </StyledTableCell>
                       <StyledTableCell align="right">
-                        <div className=" pr-6 space-x-4">
-                          <NavLink to={`/fedit/${value._id}`}>
-                            <EditIcon className=" border text-green-600 cursor-pointer" />
-                          </NavLink>
-                          <DeleteIcon className=" border text-red-600 cursor-pointer" 
-                          onClick={() => deleteData(value._id)}/>
-                        </div>
+                        {value?.fReply}
                       </StyledTableCell>
                     </StyledTableRow>
                   </TableBody>
@@ -133,11 +157,10 @@ const Allfeedbacks = () => {
               })}
             </Table>
           </TableContainer>
-        
         </div>
       </div>
     </>
   );
 };
 
-export default Allfeedbacks;
+export default ViewReply;

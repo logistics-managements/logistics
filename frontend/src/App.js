@@ -11,6 +11,9 @@ import Footer from "./components/Footer";
 import Fcreate from "./components/Feedback/Create";
 import Allfeedbacks from "./components/Feedback/Allfeedbacks";
 import Fedit from "./components/Feedback/Edit";
+import Viewfeedback from "./components/Feedback/Viewfeedback";
+import ViewReply from "./components/Feedback/ViewReply";
+
 
 const App = () => {
   return (
@@ -24,7 +27,9 @@ const App = () => {
           <Route path="/inventory" element={[<Header />,<Inventory />]} />
           <Route path="/fcreate" element={[<Fcreate />]} />
           <Route path="/fview" element={[<Header />,<Allfeedbacks />]} />
-          <Route path="/fedit" element={[<Header />,<Fedit />]} />
+          <Route path="/fedit/:id" element={[<Header />,<Fedit />]} />
+          <Route path="/feedback/get/:id" element={[<Header />,<Viewfeedback />]} />
+          <Route path="/frview" element={[<ViewReply />]} />
         </Routes>
         <div>
           <br />
