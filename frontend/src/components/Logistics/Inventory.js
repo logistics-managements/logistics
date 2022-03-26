@@ -61,10 +61,6 @@ const Inventory = () => {
     }
   };
 
-  const filteredData = data.filter(
-    (el) => el?.pID.toLowerCase().indexOf(query) >= 0
-  );
-
   return (
     <>
       <div>
@@ -95,17 +91,6 @@ const Inventory = () => {
           </div>
         </Box>
         <br />
-        <div class="flex float-right mr-32">
-          <div class="flex border-2 border-gray-200 rounded">
-            <input
-              type="text"
-              class="px-4 py-2 w-80"
-              placeholder="Search..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-          </div>
-        </div>
         <div className=" mx-32 mt-14">
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 400 }} aria-label="customized table">
@@ -121,46 +106,39 @@ const Inventory = () => {
               </TableHead>
 
               <TableBody>
-                {filteredData?.length === 0 ? ( //conditional satement
-                  <center>
-                    <h1 style={{ color: "red" }}>
-                      Oops.. There are no data Yet 😒{" "}
-                    </h1>
-                  </center>
-                ) : (
-                  filteredData?.map((value) => {
-                    return (
-                      <StyledTableRow key={value?._id}>
-                        <StyledTableCell component="th" scope="row">
-                          {value?.pID}
-                        </StyledTableCell>
-                        <StyledTableCell align="right">
-                          {value?.pName}
-                        </StyledTableCell>
-                        <StyledTableCell align="right">
-                          {value?.quantity}
-                        </StyledTableCell>
-                        <StyledTableCell align="right">
-                          {value?.unitPrice}
-                        </StyledTableCell>
-                        <StyledTableCell align="right">
-                          {value.demand}
-                        </StyledTableCell>
-                        <StyledTableCell align="right">
-                          <div className=" pr-6 space-x-4">
-                            <NavLink to={`/edit/${value._id}`}>
-                              <EditIcon className=" border bg-green-600 cursor-pointer" />
-                            </NavLink>
-                            <DeleteIcon
-                              className=" border bg-red-600 cursor-pointer"
-                              onClick={() => deleteData(value._id)}
-                            />
-                          </div>
-                        </StyledTableCell>
-                      </StyledTableRow>
-                    );
-                  })
-                )}
+                {data?.map((value) => {
+                  return (
+                    <StyledTableRow key={value?._id}>
+                      <StyledTableCell component="th" scope="row">
+                        {value?.pID}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        {value?.pName}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        {value?.quantity}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        <span>Rs:</span>
+                        {value?.unitPrice}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        {value.demand}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        <div className=" pr-6 space-x-4">
+                          <NavLink to={`/edit/${value._id}`}>
+                            <EditIcon className=" border text-green-600 cursor-pointer" />
+                          </NavLink>
+                          <DeleteIcon
+                            className=" border text-red-600 cursor-pointer"
+                            onClick={() => deleteData(value._id)}
+                          />
+                        </div>
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  );
+                })}
               </TableBody>
             </Table>
           </TableContainer>

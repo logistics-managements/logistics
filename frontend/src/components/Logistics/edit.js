@@ -108,7 +108,7 @@ const Edit = () => {
           Update Item <br />
         </div>
         <form onSubmit={editHandler}>
-          <div class="container px-36 py-24 mx-auto  mt-4">
+          <div class="container px-36 py-24 mx-auto ">
             <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
               <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-black">
                 P.ID
