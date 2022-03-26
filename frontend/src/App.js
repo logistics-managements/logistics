@@ -5,8 +5,8 @@ import Header from "./components/Header";
 import Home from "./components/Home/Home";
 import AdminHome from "./components/Home/AdminHome";
 import Inventory from "./components/Logistics/Inventory";
-import Create from "./components/Logistics/Create";
-import Edit from "./components/Logistics/Edit";
+import Create from "./components/Logistics/create";
+import Edit from "./components/Logistics/edit";
 import Footer from "./components/Footer";
 
 const App = () => {
