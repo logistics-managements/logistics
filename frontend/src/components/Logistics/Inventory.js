@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
@@ -9,8 +10,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Button } from "@mui/material";
 
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -33,6 +36,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Inventory = () => {
+  const navigate = useNavigate();
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -56,9 +61,22 @@ const Inventory = () => {
             borderColor: "primary.main",
           }}
         >
-          <h1 className=" text-center text-5xl text-lime-500 font-semibold">
-            -Warehouse Inventory-
-          </h1>
+          <div className=" inline-flex  mx-auto">
+            <div className=" mt-2 -translate-x-8">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => navigate("/adminhome")}
+              >
+                Back
+              </Button>
+            </div>
+            <div>
+              <h1 className=" ml-44 text-5xl text-lime-500 font-semibold">
+                -Warehouse Inventory-
+              </h1>
+            </div>
+          </div>
         </Box>
         <div className=" mx-32 mt-10">
           <TableContainer component={Paper}>
@@ -94,7 +112,12 @@ const Inventory = () => {
                         {value.demand}
                       </StyledTableCell>
                       <StyledTableCell align="right">
-                        <DeleteIcon/>
+                        <div className=" pr-6 space-x-4">
+                          <NavLink to="/edit">
+                            <EditIcon className=" border bg-green-600 cursor-pointer" />
+                          </NavLink>
+                          <DeleteIcon className=" border bg-red-600 cursor-pointer" />
+                        </div>
                       </StyledTableCell>
                     </StyledTableRow>
                   </TableBody>
@@ -102,6 +125,15 @@ const Inventory = () => {
               })}
             </Table>
           </TableContainer>
+          <div className=" mx-auto mt-10 text-right">
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() => navigate("/create")}
+            >
+              Add Item
+            </Button>
+          </div>
         </div>
       </div>
     </>
