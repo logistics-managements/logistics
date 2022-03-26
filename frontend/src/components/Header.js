@@ -50,6 +50,7 @@ const Header = () => {
           </div>
         </div>
       </Typography>
+      <br/>
     </div>
   );
 };
