@@ -17,6 +17,7 @@ import img7 from "../../assets/gallery/img7.jpg";
 import logo from "../../assets/logo.png";
 
 import feedback from "../../assets/feedback/feedback.jpg";
+import Utils from "../../utils/utils.json";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -212,12 +213,18 @@ const card = (
                         width: 425,
                         height: 75,
                         backgroundColor: "#b2dfdb",
+                        color: "#000",
                         "&:hover": {
                           backgroundColor: "#00796b",
+                          color: "#fff",
                           opacity: [0.9, 0.8, 0.7],
                         },
                       }}
-                    />
+                    >
+                      <p>{Utils.f1.fName}</p>
+                      <p>{Utils.f1.fComment}</p>
+                      <p>{Utils.f1.fRating}</p>
+                    </Box>
                   </div>
                   <div className="pb-4">
                     <Box
@@ -226,12 +233,18 @@ const card = (
                         width: 425,
                         height: 75,
                         backgroundColor: "#b2dfdb",
+                        color: "#000",
                         "&:hover": {
                           backgroundColor: "#00796b",
+                          color: "#fff",
                           opacity: [0.9, 0.8, 0.7],
                         },
                       }}
-                    />
+                    >
+                      <p>{Utils.f2.fName}</p>
+                      <p>{Utils.f2.fComment}</p>
+                      <p>{Utils.f2.fRating}</p>
+                    </Box>
                   </div>
                   <div className="pb-4">
                     <Box
@@ -240,20 +253,35 @@ const card = (
                         width: 425,
                         height: 75,
                         backgroundColor: "#b2dfdb",
+                        color: "#000",
                         "&:hover": {
                           backgroundColor: "#00796b",
+                          color: "#fff",
                           opacity: [0.9, 0.8, 0.7],
                         },
                       }}
-                    />
+                    >
+                      <p>{Utils.f3.fName}</p>
+                      <p>{Utils.f3.fComment}</p>
+                      <p>{Utils.f3.fRating}</p>
+                    </Box>
                   </div>
                 </div>
-                <div className="pl-64">
-                  <NavLink to="/fcreate">
-                    <Button variant="contained" color="success">
-                      Add FeedBack
-                    </Button>
-                  </NavLink>
+                <div className="flex">
+                <div className="">
+                    <NavLink to="/frview">
+                      <Button variant="contained" color="primary">
+                        View Replies
+                      </Button>
+                    </NavLink>
+                  </div>
+                  <div className=" ml-40">
+                    <NavLink to="/fcreate">
+                      <Button variant="contained" color="success">
+                        Add FeedBack
+                      </Button>
+                    </NavLink>
+                  </div>
                 </div>
               </div>
             </div>

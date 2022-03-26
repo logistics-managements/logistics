@@ -3,7 +3,7 @@ const Feedback = require("../models/feedback");
 
 //route for creating insertion to database
 router.route("/create").post(async (req, res) => {
-    const { fName, fComment } = req.body;
+    const { fName, fComment, fReply } = req.body;
 
     const fRating = Number(req.body.fRating);
 
@@ -11,6 +11,7 @@ router.route("/create").post(async (req, res) => {
         fName,
         fComment,
         fRating,
+        fReply
     })
 
     await newFeedback
@@ -56,7 +57,22 @@ router.route("/update/:id").put(async (req, res) => {
     await Feedback.findByIdAndUpdate(id, {
         fName,
         fComment,
-        fRating,
+        fRating
+    })
+        .then(() => res.json({ success: true }))
+        .catch((error) => res.json({ success: false, error: error }));
+});
+
+//route for editing a relavant feedback using id
+router.route("/reply/:id").put(async (req, res) => {
+    //backend route for updating relavant data and passing back
+    const { id } = req.params;
+
+    const { fReply } = req.body;
+
+    //find the feedback by id and update the relavant data
+    await Feedback.findByIdAndUpdate(id, {
+        fReply
     })
         .then(() => res.json({ success: true }))
         .catch((error) => res.json({ success: false, error: error }));

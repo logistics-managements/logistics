@@ -22,6 +22,8 @@ const Create = () => {
   const [loading, setLoading] = useState(false); //additional
   const [isError, setIsError] = useState(false);
 
+  const fReply = "No Reply";
+
   const isCheck = () => {
     if (fName === undefined || fComment === undefined || fRating === undefined)
       toast("Plase fill out the required fields!");
@@ -44,7 +46,7 @@ const Create = () => {
       //exception handling
       var { data } = await axios.post(
         "/feedback/create",
-        { fName, fComment, fRating },
+        { fName, fComment, fRating, fReply },
         config
       );
       toast("Success! Added 😘");

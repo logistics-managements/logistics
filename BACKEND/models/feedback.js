@@ -11,6 +11,9 @@ const Feedback = new Schema({
     fRating: {
         type: Number,
     },
+    fReply: {
+        type: String,
+    },
 });
 
 const newFeedback = mongoose.model("feedback", Feedback); //create database collection
