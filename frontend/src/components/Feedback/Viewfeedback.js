@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { useNavigate as Tharuka } from "react-router-dom";
-import { Link as Anjana } from "react-router-dom";
 import Button from "@mui/material/Button";
 
 const Viewfeedback = () => {
@@ -16,14 +14,14 @@ const Viewfeedback = () => {
 
   const [data, setData] = useState([]);
 
-  const tharuka = Tharuka()
+  const navigate = useNavigate()
 
   const Reply = async () => {
     await axios
       .put(`/feedback/reply/${id}`, { fReply })
       .then(() => alert("Successfully Replied!"))
       .catch((error) => alert(error));
-      tharuka("/fview")
+      navigate("/fview")
   };
 
   useEffect(() => {
@@ -40,7 +38,7 @@ const Viewfeedback = () => {
       .delete(`/feedback/delete/${id}`)
       .then(() => alert("Successfully Deleted!"))
       .catch((error) => alert(error));
-      tharuka("/fview")
+      navigate("/fview")
   };
   return (
     <div className="body">
@@ -94,13 +92,13 @@ const Viewfeedback = () => {
               }}
               onClick={() => deletefb(id)}
             ></i>{" "}
-            <Anjana to={`/fedit/${id}`}>
+            <Link to={`/fedit/${id}`}>
               <i
                 className="fa fa-pencil"
                 aria-hidden="true"
                 style={{ color: "green", fontSize: "20px" }}
               ></i>
-            </Anjana>
+            </Link>
             <br />
           </CardContent>
         </Card>
