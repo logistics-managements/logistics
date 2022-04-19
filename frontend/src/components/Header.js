@@ -3,9 +3,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import logo from "../assets/logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const history = useNavigate();
+
   return (
     <div>
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -39,10 +41,12 @@ const Header = () => {
               Employee management
             </Button>
           </div>
+          <div onClick={() => history("/bunglow")}>
           <div className=" px-2">
             <Button variant="contained" color="success">
               Bungalow & Safari jeep Mng.
             </Button>
+          </div>
           </div>
           <div className=" px-2">
             <NavLink to="/fview">
