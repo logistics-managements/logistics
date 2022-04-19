@@ -157,7 +157,7 @@ const Allsafarijeeps = () => {
             <Button
               variant="contained"
               color="success"
-              onClick={() => navigate("/bunglowcreate")}
+              onClick={() => navigate("/safaricreate")}
             >
               Add Safari Jeep
             </Button>
