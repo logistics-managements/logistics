@@ -13,7 +13,7 @@ import Allfeedbacks from "./components/Feedback/Allfeedbacks";
 import Fedit from "./components/Feedback/Edit";
 import Viewfeedback from "./components/Feedback/Viewfeedback";
 import ViewReply from "./components/Feedback/ViewReply";
-
+import Report from "./components/Feedback/Report";
 
 const App = () => {
   return (
@@ -21,15 +21,19 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/adminhome" element={ [<Header />,<AdminHome />] } />
-          <Route path="/create" element={[<Header />,<Create />]} />
-          <Route path="/edit" element={[<Header />,<Edit />]} />
-          <Route path="/inventory" element={[<Header />,<Inventory />]} />
+          <Route path="/adminhome" element={[<Header />, <AdminHome />]} />
+          <Route path="/create" element={[<Header />, <Create />]} />
+          <Route path="/edit" element={[<Header />, <Edit />]} />
+          <Route path="/inventory" element={[<Header />, <Inventory />]} />
           <Route path="/fcreate" element={[<Fcreate />]} />
-          <Route path="/fview" element={[<Header />,<Allfeedbacks />]} />
-          <Route path="/fedit/:id" element={[<Header />,<Fedit />]} />
-          <Route path="/feedback/get/:id" element={[<Header />,<Viewfeedback />]} />
+          <Route path="/fview" element={[<Header />, <Allfeedbacks />]} />
+          <Route path="/fedit/:id" element={[<Header />, <Fedit />]} />
+          <Route
+            path="/feedback/get/:id"
+            element={[<Header />, <Viewfeedback />]}
+          />
           <Route path="/frview" element={[<ViewReply />]} />
+          <Route path="/freport" element={[<Header />, <Report />]} />
         </Routes>
         <div>
           <br />

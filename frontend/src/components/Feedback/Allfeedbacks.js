@@ -39,7 +39,6 @@ const Allfeedbacks = () => {
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
-  
 
   useEffect(() => {
     (async () => {
@@ -60,7 +59,6 @@ const Allfeedbacks = () => {
         .catch((error) => alert(error));
     }
   };
-
 
   return (
     <>
@@ -97,7 +95,9 @@ const Allfeedbacks = () => {
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Name</StyledTableCell>
-                  <StyledTableCell align="right">Feedback Comment</StyledTableCell>
+                  <StyledTableCell align="right">
+                    Feedback Comment
+                  </StyledTableCell>
                   <StyledTableCell align="right">Ratings</StyledTableCell>
                   <StyledTableCell align="right">Update/Remove</StyledTableCell>
                 </TableRow>
@@ -109,7 +109,7 @@ const Allfeedbacks = () => {
                     <StyledTableRow key={value?._id}>
                       <StyledTableCell component="th" scope="row">
                         <Link to={`/feedback/get/${value._id}`}>
-                        {value?.fName}
+                          {value?.fName}
                         </Link>
                       </StyledTableCell>
                       <StyledTableCell align="right">
@@ -123,8 +123,10 @@ const Allfeedbacks = () => {
                           <NavLink to={`/fedit/${value._id}`}>
                             <EditIcon className=" border text-green-600 cursor-pointer" />
                           </NavLink>
-                          <DeleteIcon className=" border text-red-600 cursor-pointer" 
-                          onClick={() => deleteData(value._id)}/>
+                          <DeleteIcon
+                            className=" border text-red-600 cursor-pointer"
+                            onClick={() => deleteData(value._id)}
+                          />
                         </div>
                       </StyledTableCell>
                     </StyledTableRow>
@@ -133,7 +135,13 @@ const Allfeedbacks = () => {
               })}
             </Table>
           </TableContainer>
-        
+          <center>
+            <Link to="/freport">
+              <Button variant="outlined" style={{ marginTop: 20 }}>
+                Generate Report
+              </Button>
+            </Link>
+          </center>
         </div>
       </div>
     </>
